@@ -10,7 +10,7 @@ let ulEl = document.getElementById('results');
 resultsContainerEl.appendChild(ulEl );
 let products = [];
 let attempts = 1;
-let maxAttempts = 10;
+let maxAttempts = 25;
 let productsImages=['bag.jpg','banana.jpg','bathroom.jpg', 'boots.jpg', 'breakfast.jpg', 'bubblegum.jpg','chair.jpg','cthulhu.jpg','dog-duck.jpg' , 'dragon.jpg', 'pen.jpg ', 'pet-sweep.jpg', 'scissors.jpg' , 'shark.jpg', 'sweep.jpg' , 'tauntaun.jpg', 'unicorn.jpg', 'water-can.jpg', 'wine-glass.jpg' ]
 
 function Product(ProductName){
@@ -81,19 +81,13 @@ function countTheVotes(event) {
         leftImgEl.removeEventListener('click', countTheVotes);
         midImgEl.removeEventListener('click', countTheVotes);
         rightImgEl.removeEventListener('click', countTheVotes);
+        
         let pEl=document.createElement('p');
-pEl.addEventListener('click',resultsfun )
-pEl.textContent="results"
-resultsContainerEl.appendChild(pEl );
-    }
-    attempts++;
-}
+        pEl.addEventListener('click',resultsfun )
+        pEl.textContent="results"
+        resultsContainerEl.appendChild(pEl );
 
-// let pEl=document.createElement('p');
-// pEl.addEventListener('click',resultsfun )
-// pEl.textContent="results"
-// resultsContainerEl.appendChild(pEl );
-function resultsfun(event){
+ function resultsfun(event){
     let clickedResult= event.target.id;
 ulEl = document.getElementById('results');
         for (let i = 0; i < products.length; i++) {
@@ -104,3 +98,22 @@ ulEl = document.getElementById('results');
 
         resultsContainerEl.appendChild(pEl );
     }
+    }
+    attempts++;
+}
+
+// let pEl=document.createElement('p');
+// pEl.addEventListener('click',resultsfun )
+// pEl.textContent="results"
+// resultsContainerEl.appendChild(pEl );
+// function resultsfun(event){
+//     let clickedResult= event.target.id;
+// ulEl = document.getElementById('results');
+//         for (let i = 0; i < products.length; i++) {
+//             let liEl = document.createElement('li');
+//             liEl.textContent = ` (${products[i].pName}) has  (${products[i].votes}) votes and (${products[i].views}) views .`
+//             ulEl.appendChild(liEl);
+//         }
+
+//         resultsContainerEl.appendChild(pEl );
+//     }
