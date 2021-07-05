@@ -31,11 +31,19 @@ h2{background-color: blanchedalmond;
     background-color:  rgb(191, 203, 204);
 }
 
-img {
-    border: black solid 2px;
-    width: 23%;
+img {padding: 3px;
+    border: black solid 1px;
+    width: 22.6%;
     height: 350px;
  
+}
+img:hover{
+background-image: linear-gradient( 
+    300deg
+     , #e70000 0%, #4a77e9 74%);
+
+
+
 }
 section{
     margin-top: 5px;
@@ -75,10 +83,21 @@ li {
     text-align: center;
 
 }
+#resultsContainer #span1:hover{
+    background-image: linear-gradient( 
+        300deg
+         , #e70000 0%, #4a77e9 74%);
+
+}
 #chart #myChart{
-    /* border: darkgrey 5px solid; */
+    /* border: darkgrey ; */
   margin-left: 17%;
   
+}
+#chart #myChart:hover{
+    background-image: linear-gradient( 
+        300deg
+         , #7e6d6d 0%, #dfe4f0 74%);
 }
 h3{background-color: blanchedalmond;
     padding: 5px;
