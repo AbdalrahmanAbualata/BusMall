@@ -20,6 +20,7 @@ h2{background-color: blanchedalmond;
     border: solid 5px black;
 }
 #resultsContainer{
+    position: relative;
     padding:5px;
     border: black solid 5px;
     float: left;
@@ -38,7 +39,7 @@ img {
 }
 section{
     margin-top: 5px;
-    margin-bottom: 150px;
+    margin-bottom: 10px;
 }
 footer{
     
@@ -48,14 +49,41 @@ footer{
     border: solid 2px black;
     height: 50px;
 }
+#resultsContainer ul {
+    line-height: 13.5pt;
+
+}
 li {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 17px;
+    font-size: 15px;
+    font-weight: 600;
    
 }
-#resultsContainer p {
-    margin-top: 300px;
+#resultsContainer #span1 {
+    width: 80px;
+    border-radius: 67px;
+    position: absolute;
+    box-shadow: rgb(75, 94, 126) 3px 3px;
+    padding: 6px;
+    background-color: burlywood;
+    /* margin-top: 290px; */
     border: 2px solid black;
+    margin-left: 70%;
+    display: inline-block;
+    font-size: 23px;
+    margin-top: 280px;
     text-align: center;
 
+}
+#chart #myChart{
+    /* border: darkgrey 5px solid; */
+  margin-left: 17%;
+  
+}
+h3{background-color: blanchedalmond;
+    padding: 5px;
+    font-size:30px;
+    text-align: center;
+    font-weight: bolder;
+    border: solid 5px black;
 }
