@@ -58,7 +58,7 @@ function readFromLocalStorage() {
     let attemptNormalObj = JSON.parse(attemptStringObj);
     if (attemptNormalObj!== null) {
       attempts=attemptNormalObj;};
-     
+     if(attempts >1){
     let stringObj = localStorage.getItem('item');
     let normalObj = JSON.parse(stringObj);
     ulEl.textContent = "";
@@ -72,7 +72,9 @@ function readFromLocalStorage() {
         ulEl.appendChild(liEl);
         
       }
-    
+     }
+     vote=[0];
+     view=[0];
     }
 readFromLocalStorage();
 
@@ -125,7 +127,7 @@ rightImgEl.addEventListener('click', countTheVotes);
 function countTheVotes(event) {
 
 
-    if (attempts[0] < maxAttempts) {
+    if (attempts[0] <= maxAttempts) {
 
         let clickedImg = event.target.id;//any img i clicked .
         if (clickedImg === 'leftImg') {
@@ -139,11 +141,12 @@ function countTheVotes(event) {
         }
 
         renderRandomImg();
-
+            
     } else {
         leftImgEl.removeEventListener('click', countTheVotes);
         midImgEl.removeEventListener('click', countTheVotes);
         rightImgEl.removeEventListener('click', countTheVotes);
+        attempts[0]=0;
         chartrender();
 
     }
@@ -153,10 +156,7 @@ function countTheVotes(event) {
 spanEl.addEventListener('click', resultsfun);
  
 function resultsfun(event) {
-     if(attempts==26){
-        attempts=[1]
-        
-    }
+    
     let clickedResult = event.target.id;
     ulEl.textContent = "" ;
     for (let i = 0; i < products.length; i++) {
@@ -219,6 +219,7 @@ var myChart = new Chart(ctx, {
         }
     }
 });
+// attempts[0]=0;
     }
 
 
