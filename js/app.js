@@ -7,11 +7,11 @@ let midImgEl = document.getElementById('midImg');
 let rightImgEl = document.getElementById('rightImg');
 let resultsContainerEl = document.getElementById('resultsContainer')
 let spanEl = document.getElementById('span1')
-spanEl.textContent = "results";
+spanEl.textContent = "results in chart press after 25 vote";
 resultsContainerEl.appendChild(spanEl);
 let ulEl = document.getElementById('results');
 resultsContainerEl.appendChild(ulEl);
-let attempts = [1];
+let attempts = [0];
 let maxAttempts = 25;
 let products = [];
 let productsName = [];
@@ -58,23 +58,23 @@ function readFromLocalStorage() {
     let attemptNormalObj = JSON.parse(attemptStringObj);
     if (attemptNormalObj!== null) {
       attempts=attemptNormalObj;};
-     if(attempts >1){
+
     let stringObj = localStorage.getItem('item');
     let normalObj = JSON.parse(stringObj);
     ulEl.textContent = "";
     if (normalObj !== null) {
     
     products= normalObj;
-    }
+    
+}
       for (let i = 0; i < products.length; i++) {
         let liEl = document.createElement('li');
         liEl.textContent = ` [${products[i].pName}] has  (${products[i].vote}) votes and {${products[i].view}} views .`
         ulEl.appendChild(liEl);
         
       }
-     }
-     vote=[0];
-     view=[0];
+    //   vote=[0];
+    //   view=[0];
     }
 readFromLocalStorage();
 
@@ -139,21 +139,22 @@ function countTheVotes(event) {
         else if (clickedImg === 'midImg') {
             products[midIndex].vote++;
         }
-
+        
         renderRandomImg();
-            
+        saveToLocalStorage();
+        readFromLocalStorage();
     } else {
         leftImgEl.removeEventListener('click', countTheVotes);
         midImgEl.removeEventListener('click', countTheVotes);
         rightImgEl.removeEventListener('click', countTheVotes);
+        spanEl.addEventListener('click', resultsfun);
         attempts[0]=0;
-        chartrender();
-
     }
     attempts[0]++;
+    saveToLocalStorage();
 }
 
-spanEl.addEventListener('click', resultsfun);
+
  
 function resultsfun(event) {
     
@@ -167,7 +168,7 @@ function resultsfun(event) {
         view.push(products[i].view);
         
     }
-  
+    chartrender();
     saveToLocalStorage();
 }
 
